@@ -24,7 +24,7 @@ const plants = [
 const BeginnerFriendlyPlants = () => {
   return (
     <section className="px-4 py-16 bg-white">
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="mx-auto text-center ">
         <h2 className="mb-6 text-3xl font-bold text-green-700">Beginner-Friendly Plants</h2>
         <p className="mb-10 text-gray-600">Start your plant journey with these easy-to-care-for options.</p>
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">

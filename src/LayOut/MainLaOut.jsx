@@ -9,10 +9,12 @@ const MainLaOut = () => {
   const isHome = location.pathname === "/";
 
   return (
-    <div>
-      <Navbar />
+    <div >
+     <div className='w-11/12 mx-auto'>
+       <Navbar />
       {isHome && <Banner />}
       <Outlet />
+     </div>
       <Footer></Footer>
     </div>
   );
