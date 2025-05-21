@@ -161,7 +161,7 @@ const UpdatePlant = () => {
         <input
           type="submit"
           value="Update Plant"
-          className="w-full text-lg btn btn-success"
+          className="w-full text-lg bg-green-600 lg:mb-16 btn"
         />
       </form>
     </div>

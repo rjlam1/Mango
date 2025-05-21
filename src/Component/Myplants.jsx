@@ -3,11 +3,12 @@ import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../PrivateRouter/AuthPrivate";
 import { Link } from "react-router";
+import { Trash2, UserPen } from "lucide-react";
 
 const MyPlants = () => {
   const { user } = useContext(AuthContext);
   const [plants, setPlants] = useState([]);
-
+console.log(plants)
   useEffect(() => {
     fetch(`http://localhost:5000/mango?email=${user.email}`)
       .then(res => res.json())
@@ -37,7 +38,7 @@ const MyPlants = () => {
 
   return (
     <div className="max-w-6xl p-4 mx-auto overflow-x-auto">
-      <h1 className="mb-6 text-4xl font-semibold text-center">My Plants</h1>
+      <h1 className="mb-6 text-3xl font-bold text-center text-green-700">My Plants</h1>
       <table className="table w-full table-zebra">
         <thead>
           <tr>
@@ -50,12 +51,13 @@ const MyPlants = () => {
         <tbody>
           {plants.map(plant => (
             <tr key={plant._id}>
+             
               <td>{plant.plantName}</td>
               <td>{plant.category}</td>
               <td>{plant.wateringFrequency}</td>
               <td className="space-x-2">
-                <Link to={`/update/${plant._id}`} className="btn btn-info btn-sm">Update</Link>
-                <button onClick={() => handleDelete(plant._id)} className="btn btn-error btn-sm">Delete</button>
+                <Link to={`/update/${plant._id}`} className="btn btn-sm"><UserPen /></Link>
+                <button onClick={() => handleDelete(plant._id)} className="btn btn-sm"> <Trash2 /></button>
               </td>
             </tr>
           ))}

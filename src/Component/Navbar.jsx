@@ -3,9 +3,10 @@ import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../PrivateRouter/AuthPrivate";
 import { FiMenu, FiX } from "react-icons/fi";
 import { ThemeContext } from "./Theme";
+import { MoonIcon, SunIcon } from "lucide-react";
 
 const Navbar = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme,toggleTheme } = useContext(ThemeContext);
   const { user, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -82,7 +83,16 @@ const Navbar = () => {
           >
             My Plants
           </NavLink>
-
+ <button
+        onClick={toggleTheme}
+        className="p-2 transition cursor-pointer"
+      >
+        {theme === "dark" ? (
+          <SunIcon className="w-6 h-6 text-yellow-400" />
+        ) : (
+          <MoonIcon className="w-6 h-6 text-gray-800" />
+        )}
+      </button>
           {user ? (
             <>
               {/* Avatar with tooltip */}

@@ -102,7 +102,7 @@ const AddPlant = () => {
         <input type="hidden" name="userName" defaultValue={user?.displayName} />
 
         {/* Submit */}
-        <button type="submit" className="w-full p-1 text-lg bg-green-700 rounded hover:bg-green-800">
+        <button type="submit" className="w-full p-1 text-lg bg-green-700 rounded cursor-pointer hover:bg-green-800">
           🌿 Add Plant
         </button>
       </form>
