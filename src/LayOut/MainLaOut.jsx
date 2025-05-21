@@ -12,7 +12,9 @@ const MainLaOut = () => {
     <div >
      <div className='w-11/12 mx-auto'>
        <Navbar />
+   
       {isHome && <Banner />}
+        
       <Outlet />
      </div>
       <Footer></Footer>
