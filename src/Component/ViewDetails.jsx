@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router";
 
 const ViewDetails = () => {
   const plant = useLoaderData();
-
+console.log(plant.image)
   return (
     <div className="max-w-5xl p-6 mx-auto">
       <div className="flex flex-col overflow-hidden bg-white border border-gray-200 shadow-2xl lg:flex-row rounded-2xl">

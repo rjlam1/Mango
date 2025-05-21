@@ -1,9 +1,5 @@
-
-import React, { useContext } from "react";
 import TopPlantCareMistakes from "./Topplan";
 import BeginnerFriendlyPlants from "./Beginaer";
-import { ThemeContext } from "./Theme";
-import { Sun, SunMoon } from "lucide-react";
 import NewPlants from "./NewPlant";
 const Home = () => {
 
