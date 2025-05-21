@@ -4,10 +4,14 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../PrivateRouter/AuthPrivate";
 import { Link } from "react-router";
 import { Trash2, UserPen } from "lucide-react";
+import { ThemeContext } from "./Theme";
 
 const MyPlants = () => {
   const { user } = useContext(AuthContext);
   const [plants, setPlants] = useState([]);
+  const { theme } = useContext(ThemeContext);
+const isDark = theme === "dark";
+
 console.log(plants)
   useEffect(() => {
     fetch(`http://localhost:5000/mango?email=${user.email}`)
@@ -37,10 +41,10 @@ console.log(plants)
   };
 
   return (
-    <div className="max-w-6xl p-4 mx-auto overflow-x-auto">
+    <div className={`... ${isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"}`}>
       <h1 className="mb-6 text-3xl font-bold text-center text-green-700">My Plants</h1>
       <table className="table w-full table-zebra">
-        <thead>
+        <thead  className={isDark ? "bg-gray-800 text-white" : "bg-green-100 text-green-800"}>
           <tr>
             <th>Name</th>
             <th>Category</th>
