@@ -3,7 +3,9 @@ import { Link } from "react-router";
 import { ThemeContext } from "./Theme";
 
 const AllPlants = () => {
-    const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
+  const isDark = theme === "dark";
+
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortBy, setSortBy] = useState("nextWateringDate");
@@ -18,7 +20,6 @@ const AllPlants = () => {
       .catch(() => setLoading(false));
   }, []);
 
-  // sorting logic
   const sortedPlants = [...plants].sort((a, b) => {
     if (sortBy === "nextWateringDate") {
       return new Date(a.nextWateringDate) - new Date(b.nextWateringDate);
@@ -40,9 +41,9 @@ const AllPlants = () => {
         </div>
       </div>
     );
-// 
+
   return (
-    <div className={`px-4 max-w-6xl p-4 mx-auto py-16 ${theme === "dark" ? "bg-gray-900" : "bg-white"}`}>
+    <div className={`px-4 max-w-6xl p-4 mx-auto py-16 ${isDark ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
       <h2 className="mb-6 text-3xl font-bold text-center text-green-700">
         🌿 All Plants
       </h2>
@@ -56,17 +57,17 @@ const AllPlants = () => {
           id="sort"
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="p-2 border rounded"
+          className={`p-2 border rounded ${isDark ? "bg-gray-800 text-white border-gray-700" : "bg-white text-black border-gray-300"}`}
         >
-          <option className="text-sm font-bold text-gray-600" value="nextWateringDate ">Next Watering Date</option>
-          <option className="text-sm font-bold text-gray-600" value="careLevel">Care Level</option>
+          <option value="nextWateringDate">Next Watering Date</option>
+          <option value="careLevel">Care Level</option>
         </select>
       </div>
 
       {/* Plants table */}
       <div className="overflow-x-auto">
-        <table className="table w-full table-zebra">
-          <thead className="text-green-800 bg-green-100">
+        <table className={`table w-full ${isDark ? "text-white" : "text-black"}`}>
+          <thead className={isDark ? "bg-gray-800 text-green-300" : "bg-green-100 text-green-800"}>
             <tr>
               <th>Index</th>
               <th>Plant Name</th>
@@ -79,7 +80,7 @@ const AllPlants = () => {
           </thead>
           <tbody>
             {sortedPlants.map((plant, index) => (
-              <tr key={plant._id}>
+              <tr key={plant._id} className={isDark ? "hover:bg-gray-800" : "hover:bg-green-50"}>
                 <td>{index + 1}</td>
                 <td>{plant.plantName}</td>
                 <td>{plant.category}</td>
@@ -88,7 +89,7 @@ const AllPlants = () => {
                 <td>{plant.careLevel}</td>
                 <td>
                   <Link to={`/plant/${plant._id}`}>
-                    <button className="bg-green-600 btn btn-sm ">
+                    <button className="text-white bg-green-600 btn btn-sm hover:bg-green-700">
                       View Details
                     </button>
                   </Link>
