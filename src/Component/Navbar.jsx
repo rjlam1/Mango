@@ -2,8 +2,10 @@ import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../PrivateRouter/AuthPrivate";
 import { FiMenu, FiX } from "react-icons/fi";
+import { ThemeContext } from "./Theme";
 
 const Navbar = () => {
+  const { theme } = useContext(ThemeContext);
   const { user, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -17,9 +19,13 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-green-200 shadow-md">
+    <nav
+      className={`rounded-lg p-1 shadow-md transition-colors duration-300 ${
+        theme === "dark" ? "bg-block" : "bg-white"
+      }`}
+    >
       <div className="flex items-center justify-between px-4 py-3 md:px-14">
-        <NavLink to="/" className="text-2xl font-bold text-green-800">
+        <NavLink to="/" className="text-3xl font-bold text-green-800">
           🌿 PlantCare
         </NavLink>
 
@@ -36,16 +42,44 @@ const Navbar = () => {
             isOpen ? "block" : "hidden"
           } md:block`}
         >
-          <NavLink to="/" className="block px-2 py-1 text-green-800">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `block px-2 py-1 text-xl font-bold rounded text-green-800 ${
+                isActive ? " underline underline-offset-4 decoration-2" : ""
+              }`
+            }
+          >
             Home
           </NavLink>
-          <NavLink to="/allPlants" className="block px-2 py-1 text-green-800">
+          <NavLink
+            to="/allPlants"
+            className={({ isActive }) =>
+              `block px-2 py-1 text-xl font-bold rounded text-green-800 ${
+                isActive ? " underline underline-offset-4 decoration-2" : ""
+              }`
+            }
+          >
             All Plants
           </NavLink>
-          <NavLink to="/addPlants" className="block px-2 py-1 text-green-800">
+          <NavLink
+            to="/addPlants"
+            className={({ isActive }) =>
+              `block px-2 py-1 text-xl font-bold rounded text-green-800 ${
+                isActive ? " underline underline-offset-4 decoration-2" : ""
+              }`
+            }
+          >
             Add Plant
           </NavLink>
-          <NavLink to="/myPlants" className="block px-2 py-1 text-green-800">
+          <NavLink
+            to="/myPlants"
+            className={({ isActive }) =>
+              `block px-2 py-1 text-xl font-bold rounded text-green-800 ${
+                isActive ? " underline underline-offset-4 decoration-2" : ""
+              }`
+            }
+          >
             My Plants
           </NavLink>
 
@@ -65,7 +99,7 @@ const Navbar = () => {
                     </span>
                     <button
                       onClick={handleLogOut}
-                      className="px-4 py-1 text-sm text-white transition-colors duration-300 bg-green-700 rounded-md cursor-pointer"
+                      className="px-4 py-1 text-lg font-bold text-white transition-colors duration-300 bg-green-600 rounded-md cursor-pointer"
                     >
                       LogOut
                     </button>
@@ -77,13 +111,13 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/login"
-                className="block px-2 py-1 bg-green-700 rounded hover:bg-green-800"
+                className="block px-2 py-1 text-xl font-bold bg-green-700 rounded hover:bg-green-800"
               >
                 Login
               </NavLink>
               <NavLink
                 to=" /register"
-                className="block px-2 py-1 bg-green-700 rounded hover:bg-green-800"
+                className="block px-2 py-1 text-xl font-bold bg-green-700 rounded hover:bg-green-800"
               >
                 Register
               </NavLink>

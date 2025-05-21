@@ -1,25 +1,25 @@
-import React  from "react";
+
+import React, { useContext } from "react";
 import TopPlantCareMistakes from "./Topplan";
 import BeginnerFriendlyPlants from "./Beginaer";
 import { ThemeContext } from "./Theme";
-import { useContext } from "react";
-
+import { Sun, SunMoon } from "lucide-react";
 const Home = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext)
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <div className="min-h-screen text-gray-900 transition-colors duration-300 bg-white dark:bg-gray-900 dark:text-gray-100">
-      {/* থিম টগল বাটন */}
       <div className="flex justify-end p-4">
         <button
-          onClick={toggleTheme}
-          className="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600"
+          onClick={() => {
+            console.log("Clicked, theme was:", theme);
+            toggleTheme();
+          }}
+          className="px-4 py-2 text-white"
         >
-          Switch to {theme === "dark" ? "Light" : "Dark"} Mode
+           {theme === "dark" ?  <Sun  size={35}/> :<SunMoon size={35} />}
         </button>
       </div>
-
-      {/* তোমার মেইন কন্টেন্ট */}
       <TopPlantCareMistakes />
       <BeginnerFriendlyPlants />
     </div>

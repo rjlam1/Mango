@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ThemeContext } from "./Theme";
+
 const plants = [
   {
     name: "Snake Plant",
@@ -22,14 +25,15 @@ const plants = [
 ];
 
 const BeginnerFriendlyPlants = () => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <section className="px-4 py-16 bg-white">
+    <section className={`px-4 py-16 ${theme === "dark" ? "bg-gray-900" : "bg-white"}`}>
       <div className="mx-auto text-center ">
         <h2 className="mb-6 text-3xl font-bold text-green-700">Beginner-Friendly Plants</h2>
         <p className="mb-10 text-gray-600">Start your plant journey with these easy-to-care-for options.</p>
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
           {plants.map((plant, idx) => (
-            <div key={idx} className="overflow-hidden transition-shadow shadow-md bg-green-50 rounded-xl hover:shadow-xl">
+            <div key={idx} className="overflow-hidden transition-transform shadow-md hover:scale-105 bg-green-50 rounded-xl hover:shadow-xl">
               <img src={plant.image} alt={plant.name} className="object-cover w-full h-48" />
               <div className="p-4">
                 <h3 className="text-lg font-semibold text-green-800">{plant.name}</h3>

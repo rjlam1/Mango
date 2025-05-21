@@ -1,8 +1,16 @@
+import { useContext } from "react";
 import { FaEnvelope, FaFacebook, FaInstagram, FaLeaf, FaPhone, FaTwitter } from "react-icons/fa";
+import { ThemeContext } from "./Theme";
 
 const Footer = () => {
+    const { theme } = useContext(ThemeContext);
   return (
-    <footer className="w-full px-6 py-12 mt-16 text-white bg-gradient-to-r from-green-950 via-green-900 to-green-800">
+    
+    <footer className={`w-full px-6 py-12  text-white ${
+      theme === "dark" 
+        ? "bg-gradient-to-r from-gray-900 via-gray-900 to-gray-900" 
+        : "bg-gradient-to-r from-green-950 via-green-900 to-green-800"
+    }`}>
       <div className="grid grid-cols-1 gap-10 mx-auto text-center max-w-8xl md:grid-cols-3 md:text-left">
         
         {/* Website Info */}

@@ -147,7 +147,7 @@ const AllPlants = () => {
                 <td>{plant.careLevel}</td>
                 <td>
                   <Link to={`/plant/${plant._id}`}>
-                    <button className="btn btn-sm btn-success">
+                    <button className="bg-green-600 btn btn-sm ">
                       View Details
                     </button>
                   </Link>
