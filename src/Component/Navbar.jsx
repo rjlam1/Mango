@@ -4,12 +4,13 @@ import { AuthContext } from "../PrivateRouter/AuthPrivate";
 import { FiMenu, FiX } from "react-icons/fi";
 import { ThemeContext } from "./Theme";
 import { MoonIcon, SunIcon } from "lucide-react";
-
+import { FaLeaf } from 'react-icons/fa';
 const Navbar = () => {
   const { theme,toggleTheme } = useContext(ThemeContext);
   const { user, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const isDark = theme === "dark";
   const handleLogOut = () => {
     logOut()
       .then(() => console.log("Logged out"))
@@ -21,13 +22,13 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`rounded-lg p-1 shadow-md transition-colors duration-300 ${theme === "dark" ? "bg-block" : "bg-white"}`}
+      className={` p-1 shadow-md transition-colors duration-300 ${isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"}`}
 
     >
       <div className="flex items-center justify-between px-10 py-3 mx-auto max-w-9xl md:px-14">
-        <NavLink to="/" className="text-3xl font-bold text-green-800">
-          🌿 PlantCare
-        </NavLink>
+      <NavLink to="/" className="flex items-center px-4 text-3xl font-bold text-green-800 transition-colors duration-300 hover:text-green-600">
+  <FaLeaf className="mr-2" /> PlantCare
+</NavLink>
 
         {/* Hamburger Icon */}
         <div className="md:hidden">
