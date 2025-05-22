@@ -77,6 +77,7 @@ import PrivateRoute from '../Component/PrivateRouter';
 import Login from '../Component/Login'
 import Register from'../Component/Register'
 import AllPlants from '../Component/Allplans';
+import NotFound from '../Component/NotFound';
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -124,7 +125,7 @@ const Router = createBrowserRouter([
       // 404 fallback
       {
         path: '*',
-        element: <Navigate to="/" replace />
+        element:<NotFound></NotFound>
       }
     ]
   }

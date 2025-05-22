@@ -18,13 +18,13 @@ const Footer = () => {
 
   return (
     <footer
-      className={`px-6 mt-1 py-12 text-white ${
+      className={`px-6 py-12 text-white ${
         theme === "dark"
           ? "bg-gradient-to-r from-gray-900 via-gray-900 to-gray-900"
           : "bg-gradient-to-r from-green-950 via-green-900 to-green-800"
       }`}
     >
-      <div className="grid grid-cols-1 gap-10 mx-auto max-w-7xl md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-10 mx-auto max-w-8xl md:grid-cols-2 lg:grid-cols-4">
         {/* Brand Section */}
         <div>
           <h2 className="flex items-center gap-2 mb-3 text-2xl font-bold">

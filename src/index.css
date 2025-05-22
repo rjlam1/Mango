@@ -1,2 +1,6 @@
 @plugin "daisyui";
 @import "tailwindcss";
+/* Invert calendar icon in dark mode */
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}

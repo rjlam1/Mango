@@ -21,11 +21,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`rounded-lg p-1 shadow-md transition-colors duration-300 ${
-        theme === "dark" ? "bg-block" : "bg-white"
-      }`}
+      className={`rounded-lg p-1 shadow-md transition-colors duration-300 ${theme === "dark" ? "bg-block" : "bg-white"}`}
+
     >
-      <div className="flex items-center justify-between px-4 py-3 md:px-14">
+      <div className="flex items-center justify-between px-10 py-3 mx-auto max-w-9xl md:px-14">
         <NavLink to="/" className="text-3xl font-bold text-green-800">
           🌿 PlantCare
         </NavLink>

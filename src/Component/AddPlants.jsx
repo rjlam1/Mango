@@ -31,22 +31,32 @@ const AddPlant = () => {
       });
   };
 
-  const inputStyle = `w-full px-4 py-2 rounded border outline-none transition-all duration-200 ${
-    isDark
-      ? "bg-gray-900 text-white border-gray-600 placeholder-gray-400"
-      : "bg-white text-black border-gray-300"
-  }`;
+  const inputStyle = `w-full px-4 py-2 rounded-md border transition-all duration-300
+    placeholder-opacity-70
+    ${
+      isDark
+        ? "bg-gray-800 text-gray-200 border-gray-600 placeholder-gray-400 focus:border-green-500 focus:ring-1 focus:ring-green-500"
+        : "bg-white text-gray-900 border-gray-300 placeholder-gray-500 focus:border-green-700 focus:ring-1 focus:ring-green-700"
+    }
+    outline-none shadow-sm
+  `;
 
   return (
-    <div className={`max-w-5xl px-4 py-10 mx-auto ${isDark ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
-      <div className="mb-10 space-y-4 text-center">
-        <h1 className="text-4xl font-bold text-green-700 md:text-5xl">🌱 Add New Plant</h1>
-        <p className="max-w-2xl mx-auto text-sm sm:text-base">
+    <div
+      className={`max-w-7xl px-6 py-10 mx-auto rounded-lg
+        ${isDark ? "bg-gray-900 text-gray-200 shadow-lg shadow-black/40" : "bg-white text-gray-900 shadow-md"}
+      `}
+    >
+      <div className="mb-10 space-y-3 text-center">
+        <h1 className="text-4xl font-extrabold text-green-600 md:text-5xl drop-shadow-md">
+          🌱 Add New Plant
+        </h1>
+        <p className="max-w-2xl mx-auto text-base text-gray-400">
           Log every detail about your green friend so the Plant Care Tracker can remind you how to take the best care of it.
         </p>
       </div>
 
-      <form onSubmit={handleAddPlant} className="space-y-8">
+      <form onSubmit={handleAddPlant} className="space-y-10">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {[
             { label: "Image URL", name: "image", type: "text", placeholder: "Photo URL" },
@@ -56,8 +66,13 @@ const AddPlant = () => {
             { label: "Last Watered Date", name: "lastWateredDate", type: "date" },
             { label: "Next Watering Date", name: "nextWateringDate", type: "date" },
           ].map(({ label, name, type, placeholder }) => (
-            <fieldset key={name} className={`p-4 border shadow-sm rounded-xl ${isDark ? "bg-gray-800 border-gray-600" : "bg-base-100 border-gray-300"}`}>
-              <label className="block mb-2 font-medium text-gray-400">{label}</label>
+            <fieldset
+              key={name}
+              className={`p-5 border rounded-lg shadow-inner
+                ${isDark ? "bg-gray-800 border-gray-700" : "bg-gray-50 border-gray-200"}
+              `}
+            >
+              <label className="block mb-2 font-semibold text-gray-300">{label}</label>
               <input
                 type={type}
                 name={name}
@@ -69,8 +84,11 @@ const AddPlant = () => {
           ))}
 
           {/* Category */}
-          <fieldset className={`p-4 border shadow-sm rounded-xl ${isDark ? "bg-gray-800 border-gray-600" : "bg-base-100 border-gray-300"}`}>
-            <label className="block mb-2 font-medium text-gray-400">Category</label>
+          <fieldset
+            className={`p-5 border rounded-lg shadow-inner
+              ${isDark ? "bg-gray-800 border-gray-700" : "bg-gray-50 border-gray-200"}`}
+          >
+            <label className="block mb-2 font-semibold text-gray-300">Category</label>
             <select name="category" className={inputStyle} required>
               <option value="">Pick one</option>
               <option value="succulent">Succulent</option>
@@ -81,8 +99,11 @@ const AddPlant = () => {
           </fieldset>
 
           {/* Care Level */}
-          <fieldset className={`p-4 border shadow-sm rounded-xl ${isDark ? "bg-gray-800 border-gray-600" : "bg-base-100 border-gray-300"}`}>
-            <label className="block mb-2 font-medium text-gray-400">Care Level</label>
+          <fieldset
+            className={`p-5 border rounded-lg shadow-inner
+              ${isDark ? "bg-gray-800 border-gray-700" : "bg-gray-50 border-gray-200"}`}
+          >
+            <label className="block mb-2 font-semibold text-gray-300">Care Level</label>
             <select name="careLevel" className={inputStyle} required>
               <option value="">Pick one</option>
               <option value="easy">Easy</option>
@@ -93,8 +114,11 @@ const AddPlant = () => {
         </div>
 
         {/* Description */}
-        <fieldset className={`p-4 border shadow-sm rounded-xl ${isDark ? "bg-gray-800 border-gray-600" : "bg-base-100 border-gray-300"}`}>
-          <label className="block mb-2 font-medium text-gray-400">Description</label>
+        <fieldset
+          className={`p-5 border rounded-lg shadow-inner
+            ${isDark ? "bg-gray-800 border-gray-700" : "bg-gray-50 border-gray-200"}`}
+        >
+          <label className="block mb-2 font-semibold text-gray-300">Description</label>
           <textarea
             name="description"
             className={inputStyle}
@@ -108,8 +132,11 @@ const AddPlant = () => {
         <input type="hidden" name="userEmail" defaultValue={user?.email} />
         <input type="hidden" name="userName" defaultValue={user?.displayName} />
 
-        {/* Submit */}
-        <button type="submit" className="w-full p-2 text-lg font-semibold text-white bg-green-700 rounded hover:bg-green-800">
+        {/* Submit button */}
+        <button
+          type="submit"
+          className="w-full py-3 text-lg font-semibold text-white transition-colors duration-300 bg-green-600 rounded-md shadow-md hover:bg-green-700"
+        >
           🌿 Add Plant
         </button>
       </form>
