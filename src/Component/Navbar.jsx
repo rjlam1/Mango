@@ -126,7 +126,7 @@ const Navbar = () => {
                 Login
               </NavLink>
               <NavLink
-                to=" /register"
+                to="/register"
                 className="block px-2 py-1 text-xl font-bold bg-green-700 rounded hover:bg-green-800"
               >
                 Register
