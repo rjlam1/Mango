@@ -32,7 +32,7 @@ const TopPlantCareMistakes = () => {
   return (
     <section className={`px-4 py-16 ${isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"}`}>
       <div className="mx-auto text-center">
-        <h2 className="mb-6 text-3xl font-bold text-green-700">Top Plant Care Mistakes</h2>
+        <h2 className="mb-6 text-3xl font-bold text-green-800">Top Plant Care Mistakes</h2>
         <p className={`mb-10 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
           Avoid these common issues to keep your plants healthy and thriving.
         </p>

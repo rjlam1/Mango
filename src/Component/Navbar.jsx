@@ -26,7 +26,7 @@ const Navbar = () => {
 
     >
       <div className="flex items-center justify-between px-10 py-3 mx-auto max-w-9xl md:px-14">
-      <NavLink to="/" className="flex items-center px-4 text-3xl font-bold text-green-800 transition-colors duration-300 hover:text-green-600">
+      <NavLink to="/" className="flex items-center px-4 text-3xl font-bold text-green-600 transition-colors duration-300 ">
   <FaLeaf className="mr-2" /> PlantCare
 </NavLink>
 
@@ -46,7 +46,7 @@ const Navbar = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `block px-2 py-1 text-xl font-bold rounded text-green-800 ${
+              `block px-2 py-1 text-xl font-bold rounded text-green-600 ${
                 isActive ? " underline underline-offset-4 decoration-2" : ""
               }`
             }
@@ -56,7 +56,7 @@ const Navbar = () => {
           <NavLink
             to="/allPlants"
             className={({ isActive }) =>
-              `block px-2 py-1 text-xl font-bold rounded text-green-800 ${
+              `block px-2 py-1 text-xl font-bold rounded text-green-600 ${
                 isActive ? " underline underline-offset-4 decoration-2" : ""
               }`
             }
@@ -66,7 +66,7 @@ const Navbar = () => {
           <NavLink
             to="/addPlants"
             className={({ isActive }) =>
-              `block px-2 py-1 text-xl font-bold rounded text-green-800 ${
+              `block px-2 py-1 text-xl font-bold rounded text-green-600 ${
                 isActive ? " underline underline-offset-4 decoration-2" : ""
               }`
             }
@@ -76,7 +76,7 @@ const Navbar = () => {
           <NavLink
             to="/myPlants"
             className={({ isActive }) =>
-              `block px-2 py-1 text-xl font-bold rounded text-green-800 ${
+              `block px-2 py-1 text-xl font-bold rounded text-green-600 ${
                 isActive ? " underline underline-offset-4 decoration-2" : ""
               }`
             }

@@ -41,8 +41,8 @@ console.log(user.email); // user er email console e dekhao
   };
 
   return (
-    <div className={`max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 lg:mb-24 py-6 ${isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"}`}>
-      <h1 className="mb-6 text-3xl font-bold text-center text-green-700">My Plants</h1>
+    <div className={`max-w-9xl min-h-screen mx-auto px-4 sm:px-6 lg:px-8  py-6 ${isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"}`}>
+      <h1 className="mb-6 text-4xl font-bold text-center text-green-800">My Plants</h1>
 
       <div className="overflow-x-auto">
         <table className="min-w-full border-collapse table-auto">

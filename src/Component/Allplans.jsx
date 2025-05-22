@@ -49,12 +49,12 @@ const AllPlants = () => {
 
   return (
     <div
-      className={`px-4 max-w-7xl mx-auto py-16 ${
+      className={`px-4 min-h-screen max-w-9xl mx-auto py-16 ${
         isDark ? "bg-gray-900 text-white" : "bg-white text-gray-900"
       }`}
     >
-      <h2 className="mb-6 text-3xl font-bold text-center text-green-700">
-        🌿 All Plants
+      <h2 className="mb-6 text-4xl font-bold text-center text-green-800">
+         All Plants
       </h2>
 
       {/* Sorting selector */}
