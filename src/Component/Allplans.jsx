@@ -13,7 +13,7 @@ const AllPlants = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://mongo-p44biutha-rjlam1s-projects.vercel.app/mango?sortBy=${sortBy}`)
+    fetch(`https://mango-server-ten.vercel.app/mango?sortBy=${sortBy}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
@@ -111,7 +111,7 @@ const AllPlants = () => {
                   <td className="px-4 py-2 capitalize border">{plant.careLevel}</td>
                   <td className="px-4 py-2 text-center border">
                     <Link to={`/plant/${plant._id}`}>
-                      <button className="px-3 py-1 text-sm text-white bg-green-600 rounded cursor-pointer hover:bg-green-700">
+                      <button className="px-3 py-1 text-sm text-white bg-green-600 rounded cursor-pointer">
                         View Details
                       </button>
                     </Link>

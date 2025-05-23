@@ -23,6 +23,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
+    
     <nav
       className={`p-1 shadow-md transition-colors duration-300 ${
         isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"

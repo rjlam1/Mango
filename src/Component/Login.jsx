@@ -52,6 +52,7 @@ const Login = () => {
   const linkColor = theme === 'dark' ? 'text-emerald-400 hover:text-emerald-300' : 'text-green-600 hover:text-green-500';
 
   return (
+    
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -82,7 +83,6 @@ const Login = () => {
                 {error}
               </motion.div>
             )}
-
             <form onSubmit={handleLogin} className="space-y-6">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -135,7 +135,6 @@ const Login = () => {
                   <span className={`px-2 ${textColor} ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>Or continue with</span>
                 </div>
               </div>
-
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -148,7 +147,6 @@ const Login = () => {
               </motion.button>
             </div>
           </div>
-
           <div className={`px-8 py-6 text-center border-t ${footerBg}`}>
             <p className={textColor}>
               Don't have an account?{' '}

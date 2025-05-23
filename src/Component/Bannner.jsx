@@ -95,7 +95,7 @@ const Banner = () => {
         </motion.div>
       </div>
 
-      {/* Indicators */}
+
       <div className="absolute left-0 right-0 z-10 flex justify-center gap-2 bottom-8">
         {slides.map((_, index) => (
           <button

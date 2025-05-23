@@ -19,7 +19,7 @@ const AddPlant = () => {
     newPlant.userEmail = user?.email;
     newPlant.userName = user?.displayName;
 
-    fetch("https://mongo-p44biutha-rjlam1s-projects.vercel.app/mango", {
+    fetch("https://mango-server-ten.vercel.app/mango", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newPlant),
@@ -141,7 +141,7 @@ const AddPlant = () => {
             )
           )}
 
-          {/* Category */}
+          
           <fieldset
             className={`p-5 border rounded-lg shadow-inner
               ${

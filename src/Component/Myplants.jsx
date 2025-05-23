@@ -14,7 +14,7 @@ const MyPlants = () => {
 
   useEffect(() => {
     if (!user?.email) return;
-    fetch(`https://mongo-p44biutha-rjlam1s-projects.vercel.app/mango?email=${user.email}`)
+    fetch(`https://mango-server-ten.vercel.app/mango?email=${user.email}`)
       .then(res => res.json())
       .then(data => setPlants(data));
   }, [user?.email]);
@@ -28,7 +28,7 @@ const MyPlants = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://mongo-p44biutha-rjlam1s-projects.vercel.app/mango/${id}`, { method: "DELETE" })
+        fetch(`https://mango-server-ten.vercel.app/mango/${id}`, { method: "DELETE" })
           .then(res => res.json())
           .then(data => {
             if (data.deletedCount > 0) {
@@ -89,13 +89,15 @@ const MyPlants = () => {
                   <td className="px-4 py-2">{plant.category}</td>
                   <td className="px-4 py-2">{plant.wateringFrequency}</td>
                   <td className="px-4 py-2">{plant.careLevel}</td>
-                  <td className="px-4 py-2 space-x-2">
-                    <Link 
+                  <td className="px-4 py-2 space-x-2 space-y-1">
+                    <button>
+                      <Link 
                       to={`/update/${plant._id}`} 
                       className={`inline-flex items-center p-2 rounded-md ${isDark ? "bg-gray-700 hover:bg-gray-600" : "bg-green-100 hover:bg-green-200"}`}
                     >
                       <UserPen className="w-5 h-5 cursor-pointer" />
                     </Link>
+                    </button>
                     <button 
                       onClick={() => handleDelete(plant._id)} 
                       className={`inline-flex items-center p-2 rounded-md ${isDark ? "bg-gray-700 hover:bg-gray-600" : "bg-green-100 hover:bg-green-200"}`}
