@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../PrivateRouter/AuthPrivate';
 import { useNavigate, useLocation, Link } from 'react-router';
@@ -44,19 +43,27 @@ const Login = () => {
     }
   };
 
+  const containerBg = theme === 'dark' ? 'from-gray-800 to-gray-900' : 'from-green-50 to-white';
+  const cardBg = theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-white border-green-100';
+  const headerBg = theme === 'dark' ? 'from-gray-700 to-gray-800' : 'from-green-500 to-emerald-600';
+  const inputBg = theme === 'dark' ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' : 'bg-white border-gray-300 text-gray-800 placeholder-gray-400';
+  const footerBg = theme === 'dark' ? 'bg-gray-900 border-gray-700' : 'bg-gray-50 border-gray-200';
+  const textColor = theme === 'dark' ? 'text-gray-200' : 'text-gray-600';
+  const linkColor = theme === 'dark' ? 'text-emerald-400 hover:text-emerald-300' : 'text-green-600 hover:text-green-500';
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex items-center justify-center p-4 bg-gradient-to-br from-green-50 to-white"
+      className={`flex items-center justify-center p-4 bg-gradient-to-br ${containerBg}`}
     >
       <div className="w-full max-w-md">
         <motion.div 
           whileHover={{ y: -5 }}
-          className="overflow-hidden bg-white border border-green-100 shadow-2xl rounded-xl"
+          className={`overflow-hidden border shadow-2xl rounded-xl ${cardBg}`}
         >
-          <div className="p-6 text-center bg-gradient-to-r from-green-500 to-emerald-600">
+          <div className={`p-6 text-center bg-gradient-to-r ${headerBg}`}>
             <h2 className="text-3xl font-bold text-white">Welcome Back</h2>
             <p className="mt-1 text-green-100">Track your mango plants with care</p>
           </div>
@@ -66,7 +73,7 @@ const Login = () => {
               <motion.div 
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center p-3 mb-6 text-red-600 border border-red-100 rounded-lg bg-red-50"
+                className="flex items-center p-3 mb-6 text-red-400 border border-red-800 rounded-lg bg-red-900/20"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -85,7 +92,7 @@ const Login = () => {
                   type="email"
                   placeholder="Email"
                   required
-                  className="w-full py-3 pl-10 pr-4 text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className={`w-full py-3 pl-10 pr-4 placeholder-gray-400 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${inputBg}`}
                 />
               </div>
 
@@ -98,7 +105,7 @@ const Login = () => {
                   type="password"
                   placeholder="Password"
                   required
-                  className="w-full py-3 pl-10 pr-4 text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className={`w-full py-3 pl-10 pr-4 placeholder-gray-400 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${inputBg}`}
                 />
               </div>
 
@@ -121,10 +128,10 @@ const Login = () => {
             <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300"></div>
+                  <div className={`w-full border-t ${theme === 'dark' ? 'border-gray-600' : 'border-gray-300'}`}></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 text-gray-500 bg-white">Or continue with</span>
+                  <span className={`px-2 ${textColor} ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>Or continue with</span>
                 </div>
               </div>
 
@@ -133,7 +140,7 @@ const Login = () => {
                 whileTap={{ scale: 0.98 }}
                 onClick={handleGoogle}
                 disabled={isLoading}
-                className="flex items-center justify-center w-full px-4 py-3 mt-6 font-medium text-gray-700 transition-all border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50"
+                className={`flex items-center justify-center w-full px-4 py-3 mt-6 font-medium transition-all border rounded-lg shadow-sm ${theme === 'dark' ? 'text-gray-200 border-gray-600 hover:bg-gray-700' : 'text-gray-700 border-gray-300 hover:bg-gray-50'}`}
               >
                 <FaGoogle className="w-5 h-5 mr-2 text-red-500" />
                 Sign in with Google
@@ -141,10 +148,10 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="px-8 py-6 text-center border-t border-gray-200 bg-gray-50">
-            <p className="text-gray-600">
+          <div className={`px-8 py-6 text-center border-t ${footerBg}`}>
+            <p className={textColor}>
               Don't have an account?{' '}
-              <Link to="/register" className="font-medium text-green-600 transition-colors hover:text-green-500">
+              <Link to="/register" className={`font-medium transition-colors ${linkColor}`}>
                 Register here
               </Link>
             </p>

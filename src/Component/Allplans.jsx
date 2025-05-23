@@ -1,6 +1,5 @@
-
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router"; // fixed import to react-router-dom
+import { Link } from "react-router";
 import { ThemeContext } from "./Theme";
 
 const AllPlants = () => {
@@ -12,28 +11,16 @@ const AllPlants = () => {
   const [sortBy, setSortBy] = useState("nextWateringDate");
 
   useEffect(() => {
-    fetch("http://localhost:5000/mango")
+    setLoading(true);
+    fetch(`https://mongo-p44biutha-rjlam1s-projects.vercel.app/mango?sortBy=${sortBy}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         setPlants(data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, []);
-
-  // Sorting logic
-  const sortedPlants = [...plants].sort((a, b) => {
-    if (sortBy === "nextWateringDate") {
-      return new Date(a.nextWateringDate) - new Date(b.nextWateringDate);
-    }
-    if (sortBy === "careLevel") {
-      // Care level assumed to be string e.g., "easy", "moderate", "difficult"
-      // Let's map them to a numeric value for sorting:
-      const careLevelMap = { easy: 1, moderate: 2, difficult: 3 };
-      return (careLevelMap[a.careLevel.toLowerCase()] || 0) - (careLevelMap[b.careLevel.toLowerCase()] || 0);
-    }
-    return 0;
-  });
+  }, [sortBy]);
 
   if (loading)
     return (
@@ -54,10 +41,9 @@ const AllPlants = () => {
       }`}
     >
       <h2 className="mb-6 text-4xl font-bold text-center text-green-800">
-         All Plants
+        All Plants
       </h2>
 
-      {/* Sorting selector */}
       <div className="flex items-center justify-center mb-4">
         <label htmlFor="sort" className="mr-2 font-semibold">
           Sort By:
@@ -77,7 +63,6 @@ const AllPlants = () => {
         </select>
       </div>
 
-      {/* Plants table */}
       <div className="overflow-x-auto rounded-lg shadow-md">
         <table
           className={`table-auto w-full border-collapse ${
@@ -90,7 +75,7 @@ const AllPlants = () => {
             }`}
           >
             <tr>
-              <th className="px-4 py-2 border">#</th>
+              <th className="px-4 py-2 border">Index</th>
               <th className="px-4 py-2 border">Plant Name</th>
               <th className="px-4 py-2 border">Category</th>
               <th className="px-4 py-2 border">Watering Frequency</th>
@@ -100,35 +85,36 @@ const AllPlants = () => {
             </tr>
           </thead>
           <tbody>
-            {sortedPlants.length === 0 && (
+            {plants.length === 0 ? (
               <tr>
                 <td colSpan="7" className="p-4 text-center">
                   No plants found.
                 </td>
               </tr>
+            ) : (
+              plants.map((plant, index) => (
+                <tr
+                  key={plant._id}
+                  className={isDark ? "hover:bg-gray-700" : "hover:bg-green-50"}
+                >
+                  <td className="px-4 py-2 text-center border">{index + 1}</td>
+                  <td className="px-4 py-2 border">{plant.plantName}</td>
+                  <td className="px-4 py-2 border">{plant.category}</td>
+                  <td className="px-4 py-2 border">{plant.wateringFrequency}</td>
+                  <td className="px-4 py-2 border">
+                    {new Date(plant.nextWateringDate).toLocaleDateString()}
+                  </td>
+                  <td className="px-4 py-2 capitalize border">{plant.careLevel}</td>
+                  <td className="px-4 py-2 text-center border">
+                    <Link to={`/plant/${plant._id}`}>
+                      <button className="px-3 py-1 text-sm text-white bg-green-600 rounded cursor-pointer hover:bg-green-700">
+                        View Details
+                      </button>
+                    </Link>
+                  </td>
+                </tr>
+              ))
             )}
-            {sortedPlants.map((plant, index) => (
-              <tr
-                key={plant._id}
-                className={`${isDark ? "hover:bg-gray-700" : "hover:bg-green-50"}`}
-              >
-                <td className="px-4 py-2 text-center border">{index + 1}</td>
-                <td className="px-4 py-2 border">{plant.plantName}</td>
-                <td className="px-4 py-2 border">{plant.category}</td>
-                <td className="px-4 py-2 border">{plant.wateringFrequency}</td>
-                <td className="px-4 py-2 border">
-                  {new Date(plant.nextWateringDate).toLocaleDateString()}
-                </td>
-                <td className="px-4 py-2 capitalize border">{plant.careLevel}</td>
-                <td className="px-4 py-2 text-center border">
-                  <Link to={`/plant/${plant._id}`}>
-                    <button className="px-3 py-1 text-sm text-white bg-green-600 rounded hover:bg-green-700">
-                      View Details
-                    </button>
-                  </Link>
-                </td>
-              </tr>
-            ))}
           </tbody>
         </table>
       </div>
@@ -137,4 +123,3 @@ const AllPlants = () => {
 };
 
 export default AllPlants;
-

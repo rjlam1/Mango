@@ -7,7 +7,7 @@ const NewPlants = () => {
   const [plants, setPlants] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/Mango")
+    fetch("https://mongo-p44biutha-rjlam1s-projects.vercel.app/Mango")
       .then((res) => res.json())
       .then((data) => {
         const latestSix = data.slice(-6).reverse();

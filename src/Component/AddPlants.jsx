@@ -18,7 +18,7 @@ const AddPlant = () => {
     newPlant.userEmail = user?.email;
     newPlant.userName = user?.displayName;
 
-    fetch("http://localhost:5000/mango", {
+    fetch("https://mongo-p44biutha-rjlam1s-projects.vercel.app/mango", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newPlant),
@@ -41,8 +41,6 @@ const AddPlant = () => {
     }
     outline-none shadow-sm
   `;
-
-  // Special style for date inputs to ensure visibility
   const dateInputStyle = `w-full px-4 py-2 rounded-md border transition-all duration-300
     ${
       isDark
@@ -51,8 +49,6 @@ const AddPlant = () => {
     }
     outline-none shadow-sm
   `;
-
-  // Label style for better visibility
   const labelStyle = isDark ? "text-gray-200" : "text-gray-700";
 
   return (
@@ -161,7 +157,6 @@ const AddPlant = () => {
             </select>
           </fieldset>
 
-          {/* Care Level */}
           <fieldset
             className={`p-5 border rounded-lg shadow-inner
               ${
@@ -181,8 +176,6 @@ const AddPlant = () => {
             </select>
           </fieldset>
         </div>
-
-        {/* Description */}
         <fieldset
           className={`p-5 border rounded-lg shadow-inner
             ${
@@ -203,14 +196,11 @@ const AddPlant = () => {
           />
         </fieldset>
 
-        {/* Hidden fields */}
         <input type="hidden" name="userEmail" defaultValue={user?.email} />
         <input type="hidden" name="userName" defaultValue={user?.displayName} />
-
-        {/* Submit button */}
         <button
           type="submit"
-          className="w-full py-3 text-lg font-semibold text-white transition-colors duration-300 bg-green-600 rounded-md shadow-md hover:bg-green-700"
+          className="w-full py-3 text-lg font-semibold text-white transition-colors duration-300 bg-green-600 rounded-md shadow-md cursor-pointer hover:bg-green-700"
         >
           Add Plant
         </button>

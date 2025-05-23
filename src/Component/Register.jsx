@@ -9,9 +9,11 @@ import {
   FaLock,
   FaArrowRight,
 } from "react-icons/fa";
+import { ThemeContext } from "./Theme";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { theme } = useContext(ThemeContext);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [passwordValidations, setPasswordValidations] = useState({
@@ -59,19 +61,52 @@ const Register = () => {
     }
   };
 
+  const themeStyles = {
+    light: {
+      background: "bg-gradient-to-br from-green-50 to-white",
+      card: "bg-white border-green-100",
+      header: "bg-gradient-to-r from-green-500 to-emerald-600",
+      input: "text-gray-800 placeholder-gray-400 border-gray-300",
+      error: "bg-red-50 border-red-100 text-red-600",
+      button: "from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700",
+      link: "text-green-600 hover:text-green-500",
+      text: "text-gray-600",
+      validation: {
+        valid: "text-green-500",
+        invalid: "text-gray-400"
+      }
+    },
+    dark: {
+      background: "bg-gradient-to-br from-gray-800 to-gray-900",
+      card: "bg-gray-800 border-gray-700",
+      header: "bg-gradient-to-r from-gray-700 to-gray-800",
+      input: "text-gray-200 placeholder-gray-400 border-gray-600 bg-gray-700",
+      error: "bg-red-900 border-red-800 text-red-200",
+      button: "from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700",
+      link: "text-green-400 hover:text-green-300",
+      text: "text-gray-300",
+      validation: {
+        valid: "text-green-400",
+        invalid: "text-gray-500"
+      }
+    }
+  };
+
+  const currentTheme = themeStyles[theme] || themeStyles.light;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex items-center justify-center p-4 bg-gradient-to-br from-green-50 to-white"
+      className={`flex items-center justify-center p-4 ${currentTheme.background}`}
     >
       <div className="w-full max-w-md">
         <motion.div
           whileHover={{ y: -5 }}
-          className="overflow-hidden bg-white border border-green-100 shadow-2xl rounded-xl"
+          className={`overflow-hidden border shadow-2xl rounded-xl ${currentTheme.card}`}
         >
-          <div className="p-6 text-center bg-gradient-to-r from-green-500 to-emerald-600">
+          <div className={`p-6 text-center ${currentTheme.header}`}>
             <h2 className="text-3xl font-bold text-white">Create Account</h2>
             <p className="mt-1 text-green-100">
               Join our mango plant community
@@ -83,7 +118,7 @@ const Register = () => {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center p-3 mb-6 text-red-600 border border-red-100 rounded-lg bg-red-50"
+                className={`flex items-center p-3 mb-6 border rounded-lg ${currentTheme.error}`}
               >
                 <svg
                   className="w-5 h-5 mr-2"
@@ -112,7 +147,7 @@ const Register = () => {
                   type="text"
                   placeholder="Full Name"
                   required
-                  className="w-full py-3 pl-10 pr-4 text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className={`w-full py-3 pl-10 pr-4 placeholder-gray-400 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${currentTheme.input}`}
                 />
               </div>
 
@@ -125,7 +160,7 @@ const Register = () => {
                   type="url"
                   placeholder="Photo URL"
                   required
-                  className="w-full py-3 pl-10 pr-4 text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className={`w-full py-3 pl-10 pr-4 placeholder-gray-400 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${currentTheme.input}`}
                 />
               </div>
 
@@ -138,7 +173,7 @@ const Register = () => {
                   type="email"
                   placeholder="Email Address"
                   required
-                  className="w-full py-3 pl-10 pr-4 text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className={`w-full py-3 pl-10 pr-4 placeholder-gray-400 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${currentTheme.input}`}
                 />
               </div>
 
@@ -152,7 +187,7 @@ const Register = () => {
                   placeholder="Password"
                   required
                   onChange={handlePasswordChange}
-                  className="w-full py-3 pl-10 pr-4 text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className={`w-full py-3 pl-10 pr-4 placeholder-gray-400 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${currentTheme.input}`}
                 />
               </div>
 
@@ -160,8 +195,8 @@ const Register = () => {
                 <div
                   className={`flex items-center ${
                     passwordValidations.length
-                      ? "text-green-500"
-                      : "text-gray-400"
+                      ? currentTheme.validation.valid
+                      : currentTheme.validation.invalid
                   }`}
                 >
                   <span className="mr-2">•</span>
@@ -170,8 +205,8 @@ const Register = () => {
                 <div
                   className={`flex items-center ${
                     passwordValidations.uppercase
-                      ? "text-green-500"
-                      : "text-gray-400"
+                      ? currentTheme.validation.valid
+                      : currentTheme.validation.invalid
                   }`}
                 >
                   <span className="mr-2">•</span>
@@ -180,8 +215,8 @@ const Register = () => {
                 <div
                   className={`flex items-center ${
                     passwordValidations.lowercase
-                      ? "text-green-500"
-                      : "text-gray-400"
+                      ? currentTheme.validation.valid
+                      : currentTheme.validation.invalid
                   }`}
                 >
                   <span className="mr-2">•</span>
@@ -193,9 +228,9 @@ const Register = () => {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isLoading}
-                className={`w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-medium rounded-lg shadow-md transition-all flex items-center justify-center ${
+                className={`w-full py-3 px-4 text-white font-medium rounded-lg shadow-md transition-all flex items-center justify-center ${
                   isLoading ? "opacity-70" : ""
-                }`}
+                } bg-gradient-to-r ${currentTheme.button}`}
               >
                 {isLoading ? (
                   <svg
@@ -226,11 +261,11 @@ const Register = () => {
             </form>
 
             <div className="mt-6 text-center">
-              <p className="text-gray-600">
+              <p className={currentTheme.text}>
                 Already have an account?{" "}
                 <Link
                   to="/login"
-                  className="font-medium text-green-600 transition-colors hover:text-green-500"
+                  className={`font-medium transition-colors ${currentTheme.link}`}
                 >
                   Login here
                 </Link>

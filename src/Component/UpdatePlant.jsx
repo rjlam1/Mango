@@ -30,7 +30,7 @@ const UpdatePlant = () => {
       description: form.description.value,
     };
 
-    fetch(`http://localhost:5000/mango/${_id}`, {
+    fetch(`https://mongo-p44biutha-rjlam1s-projects.vercel.app/mango/${_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedPlant),

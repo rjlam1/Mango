@@ -25,7 +25,6 @@ const Footer = () => {
       }`}
     >
       <div className="grid grid-cols-1 gap-10 mx-auto md:grid-cols-2 lg:grid-cols-4">
-        {/* Brand Section */}
         <div>
           <h2 className="flex items-center gap-2 mb-3 text-2xl font-bold">
             <FaLeaf className="text-green-400" />
@@ -36,8 +35,6 @@ const Footer = () => {
             growing a career or nurturing greens.
           </p>
         </div>
-
-        {/* Quick Links */}
         <div>
           <h3 className="mb-3 text-lg font-semibold">Quick Links</h3>
           <ul className="space-y-2 text-sm text-gray-300">
@@ -56,7 +53,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Contact Info */}
         <div>
           <h3 className="mb-3 text-lg font-semibold">Get in Touch</h3>
           <ul className="space-y-2 text-sm text-gray-300">
@@ -70,8 +66,6 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-
-        {/* Newsletter + Social */}
         <div>
           <h3 className="mb-3 text-lg font-semibold">Subscribe</h3>
           <form className="flex flex-col gap-3">
