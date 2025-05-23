@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { FaTint, FaSun, FaHandScissors, FaBug, FaHands } from "react-icons/fa";
 import { ThemeContext } from "./Theme";
+import { Helmet } from "react-helmet-async";
 
 const TopPlantCareMistakes = () => {
   const { theme } = useContext(ThemeContext);

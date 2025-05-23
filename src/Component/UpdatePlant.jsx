@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
@@ -46,6 +47,9 @@ const UpdatePlant = () => {
 
   return (
     <div className="max-w-5xl mx-auto">
+      <Helmet>
+        <title>Mango Grove Tracker | Update Plants</title>
+      </Helmet>
       <div className="mb-6 space-y-5 text-center">
         <h1 className="text-4xl font-bold text-green-700 md:text-5xl">
           Update Plant

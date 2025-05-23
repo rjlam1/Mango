@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../PrivateRouter/AuthPrivate";
 import { ThemeContext } from "./Theme";
+import { Helmet } from "react-helmet-async";
 
 const AddPlant = () => {
   const { user } = useContext(AuthContext);
@@ -53,6 +54,7 @@ const AddPlant = () => {
 
   return (
     <div
+    
       className={`max-w-9xl px-6 py-10 mx-auto
         ${
           isDark
@@ -61,6 +63,9 @@ const AddPlant = () => {
         }
       `}
     >
+      <Helmet>
+        <title>Mango Grove Tracker | AddPlants</title>
+      </Helmet>
       <div className="mb-10 space-y-3 text-center">
         <h1 className="text-4xl font-bold text-green-800 md:text-4xl drop-shadow-md">
            Add New Plant

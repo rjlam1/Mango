@@ -10,6 +10,7 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import { ThemeContext } from "./Theme";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -102,6 +103,9 @@ const Register = () => {
       className={`flex items-center justify-center p-4 ${currentTheme.background}`}
     >
       <div className="w-full max-w-md">
+        <Helmet>
+          <title>Mango Grove Tracker | Register</title>
+        </Helmet>
         <motion.div
           whileHover={{ y: -5 }}
           className={`overflow-hidden border shadow-2xl rounded-xl ${currentTheme.card}`}

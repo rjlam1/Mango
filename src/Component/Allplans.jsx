@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
 import { ThemeContext } from "./Theme";
+import { Helmet } from "react-helmet-async";
 
 const AllPlants = () => {
   const { theme } = useContext(ThemeContext);
@@ -40,6 +41,9 @@ const AllPlants = () => {
         isDark ? "bg-gray-900 text-white" : "bg-white text-gray-900"
       }`}
     >
+      <Helmet>
+        <title>Mango Grove Tracker |  AllPlants</title>
+      </Helmet>
       <h2 className="mb-6 text-4xl font-bold text-center text-green-800">
         All Plants
       </h2>

@@ -59,6 +59,7 @@ const Login = () => {
       className={`flex items-center justify-center p-4 bg-gradient-to-br ${containerBg}`}
     >
       <div className="w-full max-w-md">
+        <title>Mango Grove Tracker | Login</title>
         <motion.div 
           whileHover={{ y: -5 }}
           className={`overflow-hidden border shadow-2xl rounded-xl ${cardBg}`}

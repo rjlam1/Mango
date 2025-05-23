@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router"; // Fixed: use react-router-dom
 import { ThemeContext } from "./Theme";
+import { Helmet } from "react-helmet-async";
 
 const NewPlants = () => {
   const { theme } = useContext(ThemeContext);
@@ -24,6 +25,9 @@ const NewPlants = () => {
         theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-800"
       }`}
     >
+      <Helmet>
+        <title>Mango Grove Tracker | New Plants</title>
+      </Helmet>
       <h2 className="mb-6 text-3xl font-bold text-center text-green-800">
          New Plants
       </h2>

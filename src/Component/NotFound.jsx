@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { ThemeContext } from "./Theme";
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 
 const NotFound = () => {
   const { theme } = useContext(ThemeContext);
@@ -8,6 +9,9 @@ const NotFound = () => {
 
   return (
     <div className={`flex flex-col items-center justify-center min-h-screen ${isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"}`}>
+      <Helmet>
+        <title>Mango Grove Tracker | Not Found</title>
+      </Helmet>
       <div className="text-center">
         <h1 className="mb-4 font-bold text-green-600 text-9xl">404</h1>
         <h2 className="mb-6 text-3xl font-semibold">Plant Not Found!</h2>

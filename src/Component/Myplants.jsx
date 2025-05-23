@@ -4,6 +4,7 @@ import { AuthContext } from "../PrivateRouter/AuthPrivate";
 import { Link } from "react-router"; 
 import { Trash2, UserPen } from "lucide-react";
 import { ThemeContext } from "./Theme";
+import { Helmet } from "react-helmet-async";
 
 const MyPlants = () => {
   const { user } = useContext(AuthContext);
@@ -41,6 +42,9 @@ const MyPlants = () => {
 
   return (
     <div className={`max-w-9xl min-h-screen mx-auto px-4 sm:px-6 lg:px-8 py-6 ${isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"}`}>
+      <Helmet>
+        <title>Mango Grove Tracker | MyPlants</title>
+      </Helmet>
       <h1 className={`mb-6 text-4xl font-bold text-center ${isDark ? "text-green-300" : "text-green-800"}`}>My Plants</h1>
 
       {plants.length === 0 ? (

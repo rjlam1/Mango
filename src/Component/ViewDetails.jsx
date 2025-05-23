@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router";
 import { ThemeContext } from "./Theme";
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 
 const ViewDetails = () => {
   const plant = useLoaderData();
@@ -9,6 +10,9 @@ const ViewDetails = () => {
 
   return (
     <div className={`min-h-screen py-12 px-4 sm:px-6 lg:px-8 ${isDark ? "bg-gray-900" : "bg-gray-50"}`}>
+      <Helmet>
+        <title>Mango Grove Tracker | ViewPlants</title>
+      </Helmet>
       <div className={`max-w-6xl mx-auto transition-all duration-300 ${isDark ? "text-gray-100" : "text-gray-800"}`}>
         <div className={`overflow-hidden rounded-xl shadow-2xl ${isDark ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"} border`}>
           <div className="flex flex-col lg:flex-row">
