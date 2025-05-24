@@ -14,7 +14,7 @@ const MyPlants = () => {
 
   useEffect(() => {
     if (!user?.email) return;
-    fetch(`https://mango-server-ten.vercel.app/mango?email=${user.email}`)
+    fetch(`https://mango-server-1yme25frn-rjlam1s-projects.vercel.app/mango?email=${user.email}`)
       .then(res => res.json())
       .then(data => setPlants(data));
   }, [user?.email]);
@@ -28,7 +28,7 @@ const MyPlants = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://mango-server-ten.vercel.app/mango/${id}`, { method: "DELETE" })
+        fetch(`https://mango-server-1yme25frn-rjlam1s-projects.vercel.app/mango/${id}`, { method: "DELETE" })
           .then(res => res.json())
           .then(data => {
             if (data.deletedCount > 0) {

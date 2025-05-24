@@ -13,7 +13,7 @@ const AllPlants = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://mango-server-ten.vercel.app/mango?sortBy=${sortBy}`)
+    fetch(`https://mango-server-1yme25frn-rjlam1s-projects.vercel.app/mango?sortBy=${sortBy}`)
       .then((res) => res.json())
       .then((data) => {
         setPlants(data);
