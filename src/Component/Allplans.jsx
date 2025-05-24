@@ -13,9 +13,24 @@ const AllPlants = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://mango-server-1yme25frn-rjlam1s-projects.vercel.app/mango?sortBy=${sortBy}`)
+    fetch(`https://mango-server-ten.vercel.app/mango`)
       .then((res) => res.json())
       .then((data) => {
+        if (sortBy === "name") {
+          data.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (sortBy === "careLevel") {
+          const careLevelMap = { difficult: 1, easy: 2, moderate: 3 };
+          data.sort(
+            (a, b) =>
+              (careLevelMap[a.careLevel.toLowerCase()] || 4) -
+              (careLevelMap[b.careLevel.toLowerCase()] || 4)
+          );
+        } else if (sortBy === "nextWateringDate") {
+          data.sort(
+            (a, b) =>
+              new Date(a.nextWateringDate) - new Date(b.nextWateringDate)
+          );
+        }
         setPlants(data);
         setLoading(false);
       })
@@ -41,7 +56,7 @@ const AllPlants = () => {
       }`}
     >
       <Helmet>
-        <title>Mango Grove Tracker |  AllPlants</title>
+        <title>Mango Grove Tracker | AllPlants</title>
       </Helmet>
       <h2 className="mb-6 text-4xl font-bold text-center text-green-800">
         All Plants
@@ -74,7 +89,9 @@ const AllPlants = () => {
         >
           <thead
             className={`${
-              isDark ? "bg-gray-800 text-green-300" : "bg-green-100 text-green-800"
+              isDark
+                ? "bg-gray-800 text-green-300"
+                : "bg-green-100 text-green-800"
             }`}
           >
             <tr>
@@ -100,14 +117,18 @@ const AllPlants = () => {
                   key={plant._id}
                   className={isDark ? "hover:bg-gray-700" : "hover:bg-green-50"}
                 >
-                  <td className="px-4 py-2 text-center border">{index }</td>
+                  <td className="px-4 py-2 text-center border">{index}</td>
                   <td className="px-4 py-2 border">{plant.plantName}</td>
                   <td className="px-4 py-2 border">{plant.category}</td>
-                  <td className="px-4 py-2 border">{plant.wateringFrequency}</td>
+                  <td className="px-4 py-2 border">
+                    {plant.wateringFrequency}
+                  </td>
                   <td className="px-4 py-2 border">
                     {new Date(plant.nextWateringDate).toLocaleDateString()}
                   </td>
-                  <td className="px-4 py-2 capitalize border">{plant.careLevel}</td>
+                  <td className="px-4 py-2 capitalize border">
+                    {plant.careLevel}
+                  </td>
                   <td className="px-4 py-2 text-center border">
                     <Link to={`/plant/${plant._id}`}>
                       <button className="px-3 py-1 text-sm text-white bg-green-600 rounded cursor-pointer">

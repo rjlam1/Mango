@@ -19,7 +19,7 @@ const AddPlant = () => {
     newPlant.userEmail = user?.email;
     newPlant.userName = user?.displayName;
 
-    fetch("https://mango-server-1yme25frn-rjlam1s-projects.vercel.app/mango", {
+    fetch("https://mango-server-ten.vercel.app/mango", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newPlant),

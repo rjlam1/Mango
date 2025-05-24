@@ -52,8 +52,8 @@
 //       { path: "/register", element: <Register /> },
 //       { path: "/addPlants", element: <PrivateRoute><AddPlant></AddPlant></PrivateRoute> },
 //       { path: "/myPlants", element: <PrivateRoute><MyPlants></MyPlants></PrivateRoute> },
-//       { path: "/plant/:id", element: <PrivateRoute><ViewDetails /></PrivateRoute>, loader: ({ params }) => fetch(`https://mango-server-1yme25frn-rjlam1s-projects.vercel.app/plants/${params.id}`) },
-//       { path: "/update/:id", element: <PrivateRoute><UpdatePlant /></PrivateRoute>, loader: ({ params }) => fetch(`https://mango-server-1yme25frn-rjlam1s-projects.vercel.app/plants/${params.id}`) }
+//       { path: "/plant/:id", element: <PrivateRoute><ViewDetails /></PrivateRoute>, loader: ({ params }) => fetch(`https://mango-server-ten.vercel.app/plants/${params.id}`) },
+//       { path: "/update/:id", element: <PrivateRoute><UpdatePlant /></PrivateRoute>, loader: ({ params }) => fetch(`https://mango-server-ten.vercel.app/plants/${params.id}`) }
 //     ]
 //   },
 // ]);
@@ -111,7 +111,7 @@ const Router = createBrowserRouter([
             <ViewDetails />
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`https://mango-server-1yme25frn-rjlam1s-projects.vercel.app/mango/${params.id}`)
+        loader: ({ params }) => fetch(`https://mango-server-ten.vercel.app/mango/${params.id}`)
       },
       {
         path: '/update/:id',
@@ -120,7 +120,7 @@ const Router = createBrowserRouter([
             <UpdatePlant />
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`https://mango-server-1yme25frn-rjlam1s-projects.vercel.app/mango/${params.id}`)
+        loader: ({ params }) => fetch(`https://mango-server-ten.vercel.app/mango/${params.id}`)
       },
       // 404 fallback
       {
