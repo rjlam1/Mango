@@ -4,7 +4,7 @@ import { AuthContext } from "../PrivateRouter/AuthPrivate";
 import { FiMenu, FiX } from "react-icons/fi";
 import { ThemeContext } from "./Theme";
 import { MoonIcon, SunIcon } from "lucide-react";
-import { FaLeaf } from 'react-icons/fa';
+import { FaLeaf } from "react-icons/fa";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -23,15 +23,14 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    
     <nav
       className={`p-1 shadow-md transition-colors duration-300 ${
         isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
       }`}
     >
       <div className="flex items-center justify-between px-4 py-3 mx-auto max-w-9xl md:px-14">
-        <NavLink 
-          to="/" 
+        <NavLink
+          to="/"
           className="flex items-center px-4 text-3xl font-bold text-green-600 transition-colors duration-300"
         >
           <FaLeaf className="mr-2" /> PlantCare
@@ -101,7 +100,7 @@ const Navbar = () => {
           >
             My Plants
           </NavLink>
-          
+
           <button
             onClick={toggleTheme}
             className="p-2 transition cursor-pointer"
@@ -120,7 +119,7 @@ const Navbar = () => {
                   <img
                     src={user.photoURL}
                     alt="User"
-                   className="w-8 h-8 transition-transform duration-300 transform border-2 border-green-600 rounded-full shadow-md cursor-pointer sm:w-10 sm:h-10 md:w-12 md:h-12 hover:scale-105"
+                    className="w-8 h-8 transition-transform duration-300 transform border-2 border-green-600 rounded-full shadow-md cursor-pointer sm:w-10 sm:h-10 md:w-12 md:h-12 hover:scale-105"
                   />
                   <div className="absolute z-10 hidden group-hover:block right-0 top-full mt-2 bg-white text-black p-3 rounded-lg shadow-xl min-w-[150px]">
                     <span className="block px-3 py-1 mb-2 text-sm text-white bg-green-700 rounded-sm">
@@ -162,7 +161,11 @@ const Navbar = () => {
         </div>
 
         {isOpen && (
-          <div className="absolute left-0 right-0 z-20 flex flex-col items-center w-full gap-4 p-4 mt-2 bg-white shadow-lg md:hidden top-16 dark:bg-gray-800">
+          <div
+            className={`absolute left-0 right-0 z-20 flex flex-col items-center w-full gap-4 p-4 mt-2 shadow-lg md:hidden top-16 transition-colors duration-300 ${
+              isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
+            }`}
+          >
             <NavLink
               to="/"
               onClick={toggleMenu}
@@ -210,7 +213,6 @@ const Navbar = () => {
 
             {user ? (
               <div className="flex flex-col items-center w-full gap-2">
-               
                 <button
                   onClick={() => {
                     handleLogOut();
