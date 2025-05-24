@@ -24,11 +24,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`p-1 shadow-md transition-colors duration-300 ${
+      className={`w-full overflow-x-hidden p-1 shadow-md transition-colors duration-300 ${
         isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
       }`}
     >
-      <div className="flex items-center justify-between px-4 py-3 mx-auto max-w-9xl md:px-14">
+      <div className="flex items-center justify-between w-full px-4 py-3 mx-auto md:px-14">
         <NavLink
           to="/"
           className="flex items-center px-4 text-3xl font-bold text-green-600 transition-colors duration-300"
@@ -37,22 +37,22 @@ const Navbar = () => {
         </NavLink>
 
         <div className="flex items-center md:hidden gap-x-2">
-          <button
-            onClick={toggleTheme}
-            className="p-2 transition cursor-pointer"
-          >
-            {theme === "dark" ? (
+          <button onClick={toggleTheme} className="p-2 transition cursor-pointer">
+            {isDark ? (
               <SunIcon className="w-6 h-6 text-yellow-400" />
             ) : (
               <MoonIcon className="w-6 h-6 text-gray-800" />
             )}
           </button>
           {user?.photoURL && (
+           
             <img
               src={user.photoURL}
+              
               alt="User"
-              className="w-10 h-10 border-2 border-green-600 rounded-full shadow-md"
+              className="object-cover w-8 h-8 border-2 border-green-600 rounded-full"
             />
+            
           )}
           <button onClick={toggleMenu}>
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -101,11 +101,8 @@ const Navbar = () => {
             My Plants
           </NavLink>
 
-          <button
-            onClick={toggleTheme}
-            className="p-2 transition cursor-pointer"
-          >
-            {theme === "dark" ? (
+          <button onClick={toggleTheme} className="p-2 transition cursor-pointer">
+            {isDark ? (
               <SunIcon className="w-6 h-6 text-yellow-400" />
             ) : (
               <MoonIcon className="w-6 h-6 text-gray-800" />
@@ -119,7 +116,7 @@ const Navbar = () => {
                   <img
                     src={user.photoURL}
                     alt="User"
-                    className="w-8 h-8 transition-transform duration-300 transform border-2 border-green-600 rounded-full shadow-md cursor-pointer sm:w-10 sm:h-10 md:w-12 md:h-12 hover:scale-105"
+                    className="w-10 h-10 transition-transform duration-300 border-2 border-green-600 rounded-full shadow-md cursor-pointer hover:scale-105"
                   />
                   <div className="absolute z-10 hidden group-hover:block right-0 top-full mt-2 bg-white text-black p-3 rounded-lg shadow-xl min-w-[150px]">
                     <span className="block px-3 py-1 mb-2 text-sm text-white bg-green-700 rounded-sm">
@@ -127,7 +124,7 @@ const Navbar = () => {
                     </span>
                     <button
                       onClick={handleLogOut}
-                      className="w-full px-4 py-1 text-lg font-bold text-white transition-colors duration-300 bg-green-600 rounded-md hover:bg-green-700"
+                      className="w-full px-4 py-1 text-lg font-bold text-white bg-green-600 rounded-md cursor-pointer hover:bg-green-700"
                     >
                       Logout
                     </button>
@@ -136,7 +133,7 @@ const Navbar = () => {
               ) : (
                 <button
                   onClick={handleLogOut}
-                  className="px-4 py-2 text-lg font-bold text-white transition-colors duration-300 bg-green-600 rounded-md hover:bg-green-700"
+                  className="px-4 py-2 text-lg font-bold text-white bg-green-600 rounded-md cursor-pointer hover:bg-green-700"
                 >
                   Logout
                 </button>
@@ -146,13 +143,13 @@ const Navbar = () => {
             <div className="flex gap-2">
               <NavLink
                 to="/login"
-                className="px-4 py-2 text-lg font-bold text-white transition-colors duration-300 bg-green-600 rounded-md hover:bg-green-700"
+                className="px-4 py-2 text-lg font-bold text-white bg-green-600 rounded-md hover:bg-green-700"
               >
                 Login
               </NavLink>
               <NavLink
                 to="/register"
-                className="px-4 py-2 text-lg font-bold text-white transition-colors duration-300 bg-green-600 rounded-md hover:bg-green-700"
+                className="px-4 py-2 text-lg font-bold text-white bg-green-600 rounded-md hover:bg-green-700"
               >
                 Register
               </NavLink>
@@ -212,30 +209,28 @@ const Navbar = () => {
             </NavLink>
 
             {user ? (
-              <div className="flex flex-col items-center w-full gap-2">
-                <button
-                  onClick={() => {
-                    handleLogOut();
-                    toggleMenu();
-                  }}
-                  className="w-full px-4 py-2 text-lg font-bold text-white transition-colors duration-300 bg-green-600 rounded-md hover:bg-green-700"
-                >
-                  Logout
-                </button>
-              </div>
+              <button
+                onClick={() => {
+                  handleLogOut();
+                  toggleMenu();
+                }}
+                className="w-full px-4 py-2 text-lg font-bold text-white bg-green-600 rounded-md cursor-pointer hover:bg-green-700"
+              >
+                Logout
+              </button>
             ) : (
               <div className="flex flex-col w-full gap-2">
                 <NavLink
                   to="/login"
                   onClick={toggleMenu}
-                  className="w-full px-4 py-2 text-lg font-bold text-center text-white transition-colors duration-300 bg-green-600 rounded-md hover:bg-green-700"
+                  className="w-full px-4 py-2 text-lg font-bold text-center text-white bg-green-600 rounded-md hover:bg-green-700"
                 >
                   Login
                 </NavLink>
                 <NavLink
                   to="/register"
                   onClick={toggleMenu}
-                  className="w-full px-4 py-2 text-lg font-bold text-center text-white transition-colors duration-300 bg-green-600 rounded-md hover:bg-green-700"
+                  className="w-full px-4 py-2 text-lg font-bold text-center text-white bg-green-600 rounded-md hover:bg-green-700"
                 >
                   Register
                 </NavLink>
@@ -249,3 +244,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

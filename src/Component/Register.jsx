@@ -232,7 +232,7 @@ const Register = () => {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isLoading}
-                className={`w-full py-3 px-4 text-white font-medium rounded-lg shadow-md transition-all flex items-center justify-center ${
+                className={`w-full py-3 px-4 cursor-pointer text-white font-medium rounded-lg shadow-md transition-all flex items-center justify-center ${
                   isLoading ? "opacity-70" : ""
                 } bg-gradient-to-r ${currentTheme.button}`}
               >

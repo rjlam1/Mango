@@ -114,7 +114,7 @@ const Login = () => {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isLoading}
-                className={`w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-medium rounded-lg shadow-md transition-all flex items-center justify-center ${isLoading ? 'opacity-70' : ''}`}
+                className={`w-full py-3 cursor-pointer px-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-medium rounded-lg shadow-md transition-all flex items-center justify-center ${isLoading ? 'opacity-70' : ''}`}
               >
                 {isLoading ? (
                   <svg className="w-5 h-5 mr-3 -ml-1 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -140,9 +140,9 @@ const Login = () => {
                 whileTap={{ scale: 0.98 }}
                 onClick={handleGoogle}
                 disabled={isLoading}
-                className={`flex items-center justify-center w-full px-4 py-3 mt-6 font-medium transition-all border rounded-lg shadow-sm ${theme === 'dark' ? 'text-gray-200 border-gray-600 hover:bg-gray-700' : 'text-gray-700 border-gray-300 hover:bg-gray-50'}`}
+                className={`flex items-center justify-center w-full cursor-pointer px-4 py-3 mt-6 font-medium transition-all border rounded-lg shadow-sm ${theme === 'dark' ? 'text-gray-200 border-gray-600 hover:bg-gray-700' : 'text-gray-700 border-gray-300 hover:bg-gray-50'}`}
               >
-                <FaGoogle className="w-5 h-5 mr-2 text-red-500" />
+                <FaGoogle className="w-5 h-5 mr-2 text-red-500 " />
                 Sign in with Google
               </motion.button>
             </div>
