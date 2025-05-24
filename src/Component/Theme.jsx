@@ -14,10 +14,8 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
-      console.log("Dark mode enabled");
     } else {
       document.documentElement.classList.remove("dark");
-      console.log("Light mode enabled");
     }
     localStorage.setItem("theme", theme);
   }, [theme]);

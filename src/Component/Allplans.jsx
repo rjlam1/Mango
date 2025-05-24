@@ -16,7 +16,6 @@ const AllPlants = () => {
     fetch(`https://mango-server-ten.vercel.app/mango?sortBy=${sortBy}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setPlants(data);
         setLoading(false);
       })
@@ -101,7 +100,7 @@ const AllPlants = () => {
                   key={plant._id}
                   className={isDark ? "hover:bg-gray-700" : "hover:bg-green-50"}
                 >
-                  <td className="px-4 py-2 text-center border">{index + 1}</td>
+                  <td className="px-4 py-2 text-center border">{index }</td>
                   <td className="px-4 py-2 border">{plant.plantName}</td>
                   <td className="px-4 py-2 border">{plant.category}</td>
                   <td className="px-4 py-2 border">{plant.wateringFrequency}</td>
