@@ -28,16 +28,23 @@ const Navbar = () => {
         isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
       }`}
     >
-      <div className="relative flex items-center justify-between px-4 py-3 mx-auto max-w-9xl md:px-14">
+      <div className="relative flex items-center justify-between px-2 py-3 mx-auto md:px-14 max-w-9xl">
+       
         <NavLink
           to="/"
-          className="flex items-center px-4 text-3xl font-bold text-green-600 transition-colors duration-300"
+          className="flex items-center text-green-600 transition-colors duration-300"
+          style={{ fontWeight: '700' }}
         >
-          <FaLeaf className="mr-2" /> PlantCare
+          <FaLeaf className="mr-1 md:size-10 size-8" />
+          <span className="text-2xl select-none md:text-4xl">PlantCare</span>
         </NavLink>
 
         <div className="flex items-center md:hidden gap-x-2">
-          <button onClick={toggleTheme} className="p-2 transition cursor-pointer">
+          <button
+            onClick={toggleTheme}
+            className="p-2 transition cursor-pointer"
+            aria-label="Toggle Theme"
+          >
             {theme === "dark" ? (
               <SunIcon className="w-6 h-6 text-yellow-400" />
             ) : (
@@ -51,11 +58,16 @@ const Navbar = () => {
               className="w-10 h-10 border-2 border-green-600 rounded-full shadow-md"
             />
           )}
-          <button onClick={toggleMenu}>
+          <button
+            onClick={toggleMenu}
+            aria-label="Toggle Menu"
+            className="text-2xl"
+          >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
         </div>
 
+       
         <div className="items-center hidden space-x-4 md:flex">
           <NavLink
             to="/"
@@ -98,7 +110,11 @@ const Navbar = () => {
             My Plants
           </NavLink>
 
-          <button onClick={toggleTheme} className="p-2 transition cursor-pointer">
+          <button
+            onClick={toggleTheme}
+            className="p-2 transition cursor-pointer"
+            aria-label="Toggle Theme"
+          >
             {theme === "dark" ? (
               <SunIcon className="w-6 h-6 text-yellow-400" />
             ) : (
@@ -154,12 +170,12 @@ const Navbar = () => {
           )}
         </div>
 
+        
         {isOpen && (
           <div
-            className={`absolute left-0 right-0 z-20 flex flex-col items-center w-full max-w-full gap-4 p-4 mt-2 shadow-lg md:hidden top-16 transition-colors duration-300 ${
+            className={`absolute left-0 right-0 z-20 flex flex-col items-center w-full gap-4 p-4 mt-2 shadow-lg md:hidden top-16 transition-colors duration-300 ${
               isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
             }`}
-            style={{ boxSizing: "border-box" }}
           >
             <NavLink
               to="/"
@@ -244,4 +260,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
