@@ -138,13 +138,13 @@ const DashboardLayout = () => {
 
          
             <div className="hidden lg:block">
-              <button
+              {/* <button
                 onClick={toggleTheme}
                 className={`flex items-center justify-center w-full px-4 py-2 mt-6 text-sm font-medium text-white rounded-lg ${currentTheme.button}`}
               >
                 {theme === "dark" ? <FiSun className="mr-2" /> : <FiMoon className="mr-2" />}
                 {theme === "dark" ? "Light" : "Dark"} Mode
-              </button>
+              </button> */}
 
            
               {user && (
