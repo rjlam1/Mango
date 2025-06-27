@@ -96,7 +96,7 @@ const AddItem = () => {
 
   return (
     <div>
-      <h1 className="mb-6 text-2xl font-bold">Add New Item</h1>
+      <h1 className="mb-6 text-2xl font-bold text-green-800 ">Add New Item</h1>
 
       {error && <div className="p-4 mb-4 text-red-700 bg-red-100 rounded">{error}</div>}
       {success && <div className="p-4 mb-4 text-green-700 bg-green-100 rounded">Item added successfully!</div>}

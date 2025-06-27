@@ -23,7 +23,7 @@ const AboutUs = () => {
       <p className="mb-6 text-lg leading-relaxed">
         Whether you’re a beginner or an expert gardener, our app offers personalized tools and reminders tailored to your plants’ unique needs. Join our community and let’s grow together!
       </p>
-      <h2 className={`text-2xl font-semibold mb-4 ${theme === 'dark' ? 'text-green-300' : 'text-green-600'}`}>
+      <h2 className={`text-2xl font-semibold mb-4 ${theme === 'dark' ? 'text-green-800' : 'text-green-800'}`}>
         Our Team
       </h2>
       <ul className="list-disc list-inside">

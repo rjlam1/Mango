@@ -113,7 +113,7 @@ const MyItems = () => {
         <div className="p-6 mb-4 bg-gray-100 rounded-full">
           <FiPlus className="w-12 h-12 text-gray-400" />
         </div>
-        <h3 className="mb-2 text-xl font-semibold">No plants yet</h3>
+        <h3 className="mb-2 text-xl font-semibold text-green-800">No plants yet</h3>
         <p className="mb-4 text-gray-600">
           Add your first plant to get started
         </p>
@@ -135,7 +135,7 @@ const MyItems = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="{`mb-8 text-2xl font-bold ${
-  theme === 'dark' ? 'text-white' : 'text-gray-600'
+  theme === 'dark' ? ' text-green-800 ' : ' text-green-800 '
 }`}"
         >
           {user?.displayName || user?.email}'s Plants

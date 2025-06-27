@@ -135,18 +135,20 @@ const AllItems = () => {
       }`}
     >
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold">All Items</h1>
+        <h1 className="text-2xl font-bold text-green-800">All Items</h1>
         <div className="relative">
+          {" "}
+          {/* This div contains the search icon and input */}
           <FiSearch className="absolute text-gray-400 transform -translate-y-1/2 dark:text-gray-300 left-3 top-1/2" />
           <input
             type="text"
             placeholder="Search items..."
-            className={`py-2 pl-8 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500
-              ${
-                theme === "dark"
-                  ? "bg-gray-700 text-white placeholder-gray-300 border-gray-600"
-                  : "bg-white text-black placeholder-gray-500 border-gray-300"
-              }`}
+            className={`py-2 pl-8 pr-3 w-full min-w-0 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500
+    ${
+      theme === "dark"
+        ? "bg-gray-700 text-white placeholder-gray-300 border-gray-600"
+        : "bg-white text-black placeholder-gray-500 border-gray-300"
+    }`}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -259,7 +261,7 @@ const AllItems = () => {
                         className="text-red-600 hover:text-red-800 dark:text-red-300 dark:hover:text-red-500"
                         title="Delete Item"
                       >
-                       <Trash2 className="w-5 h-5 text-red-500 cursor-pointer" />
+                        <Trash2 className="w-5 h-5 text-red-500 cursor-pointer" />
                       </button>
                     </div>
                   </td>

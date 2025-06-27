@@ -50,7 +50,7 @@ const DashboardOverview = () => {
     <div>
       
 <h1 className={`mb-8 text-2xl font-bold ${
-  theme === 'dark' ? 'text-white' : 'text-gray-800'
+  theme === 'dark' ? 'text-green-800 ' : 'text-green-800'
 }`}>
   Dashboard Overview
 </h1>
