@@ -1,6 +1,7 @@
 import TopPlantCareMistakes from "./Topplan";
 import BeginnerFriendlyPlants from "./Beginaer";
 import NewPlants from "./NewPlant";
+import AISection from "./Alsection";
 const Home = () => {
 
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <NewPlants></NewPlants>
       <TopPlantCareMistakes />
       <BeginnerFriendlyPlants />
+      <AISection></AISection>
     </div>
   );
 };

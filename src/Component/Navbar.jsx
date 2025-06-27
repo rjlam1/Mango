@@ -24,16 +24,15 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`p-1 shadow-md transition-colors duration-300 ${
+      className={`p-1 sticky top-0 z-50  shadow-md transition-colors duration-300 ${
         isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
       }`}
     >
-      <div className="relative flex items-center justify-between px-2 py-3 mx-auto md:px-14 max-w-9xl">
-       
+      <div className="relative flex items-center justify-between px-2 py-3 mx-auto md:px-2 max-w-9xl">
         <NavLink
           to="/"
           className="flex items-center text-green-600 transition-colors duration-300"
-          style={{ fontWeight: '700' }}
+          style={{ fontWeight: "700" }}
         >
           <FaLeaf className="mr-1 md:size-10 size-8" />
           <span className="text-2xl select-none md:text-4xl">PlantCare</span>
@@ -67,7 +66,6 @@ const Navbar = () => {
           </button>
         </div>
 
-       
         <div className="items-center hidden space-x-4 md:flex">
           <NavLink
             to="/"
@@ -108,6 +106,36 @@ const Navbar = () => {
             }
           >
             My Plants
+          </NavLink>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              `px-2 py-1 text-lg font-bold rounded text-green-600 ${
+                isActive ? "underline underline-offset-4 decoration-2" : ""
+              }`
+            }
+          >
+            DashBoard
+          </NavLink>
+          <NavLink
+            to="/support"
+            className={({ isActive }) =>
+              `px-2 py-1 text-lg font-bold rounded text-green-600 ${
+                isActive ? "underline underline-offset-4 decoration-2" : ""
+              }`
+            }
+          >
+            Support
+          </NavLink>
+          <NavLink
+            to="/aboutUs"
+            className={({ isActive }) =>
+              `px-2 py-1 text-lg font-bold rounded text-green-600 ${
+                isActive ? "underline underline-offset-4 decoration-2" : ""
+              }`
+            }
+          >
+            AboutUs
           </NavLink>
 
           <button
@@ -170,7 +198,6 @@ const Navbar = () => {
           )}
         </div>
 
-        
         {isOpen && (
           <div
             className={`absolute left-0 right-0 z-20 flex flex-col items-center w-full gap-4 p-4 mt-2 shadow-lg md:hidden top-16 transition-colors duration-300 ${
@@ -221,7 +248,39 @@ const Navbar = () => {
             >
               My Plants
             </NavLink>
-
+            <NavLink
+              to="/dashboard"
+              onClick={toggleMenu}
+              className={({ isActive }) =>
+                `w-full text-center py-2 text-lg font-bold rounded text-green-600 ${
+                  isActive ? "underline underline-offset-4 decoration-2" : ""
+                }`
+              }
+            >
+              Dashboard
+            </NavLink>
+            <NavLink
+              to="/support"
+              onClick={toggleMenu}
+              className={({ isActive }) =>
+                `w-full text-center py-2 text-lg font-bold rounded text-green-600 ${
+                  isActive ? "underline underline-offset-4 decoration-2" : ""
+                }`
+              }
+            >
+              Support
+            </NavLink>
+            <NavLink
+              to="/aboutUs"
+              onClick={toggleMenu}
+              className={({ isActive }) =>
+                `w-full text-center py-2 text-lg font-bold rounded text-green-600 ${
+                  isActive ? "underline underline-offset-4 decoration-2" : ""
+                }`
+              }
+            >
+              AboutUs
+            </NavLink>
             {user ? (
               <div className="flex flex-col items-center w-full gap-2">
                 <button

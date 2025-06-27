@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router";
 
 const slides = [
   {
@@ -33,7 +34,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[90vh] max-h-[800px] overflow-hidden">
+    <div className="relative  w-full h-[70vh] max-h-[800px] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -87,10 +88,12 @@ const Banner = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
           >
+            <Link to={"/allPlants"}>
             <button className="px-8 py-3 mt-4 text-base font-semibold transition-all duration-300 rounded-full shadow-xl bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 hover:scale-105 hover:shadow-2xl">
               {slides[current].cta}
               <span className="ml-2">→</span>
             </button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

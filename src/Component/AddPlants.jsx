@@ -55,7 +55,7 @@ const AddPlant = () => {
   return (
     <div
     
-      className={`max-w-9xl px-6 py-10 mx-auto
+      className={`max-w-9xl px-4 py-6 mx-auto
         ${
           isDark
             ? "bg-gray-900 text-gray-200 shadow-lg shadow-black/40"

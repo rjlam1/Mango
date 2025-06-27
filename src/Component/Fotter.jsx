@@ -18,7 +18,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`px-18 py-16 w-11/12 mx-auto text-white ${
+      className={`px-6 py-16 w-11/12 mx-auto text-white ${
         theme === "dark"
           ? "bg-gradient-to-r from-gray-900 via-gray-900 to-gray-900"
           : "bg-gradient-to-r from-green-950 via-green-900 to-green-800"

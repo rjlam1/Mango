@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { useLoaderData, useNavigate } from "react-router";
+import { useLoaderData, useNavigate, useLocation } from "react-router";
 import Swal from "sweetalert2";
 
 const UpdatePlant = () => {
@@ -16,6 +16,8 @@ const UpdatePlant = () => {
   } = useLoaderData();
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/myPlants";
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -40,18 +42,18 @@ const UpdatePlant = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           Swal.fire("Updated!", "Plant updated successfully!", "success");
-          navigate("/myPlants");
+          navigate(from);
         }
       });
   };
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="px-2 py-6 mx-auto max-w-8xl">
       <Helmet>
         <title>Mango Grove Tracker | Update Plants</title>
       </Helmet>
       <div className="mb-6 space-y-5 text-center">
-        <h1 className="text-4xl font-bold text-green-700 md:text-5xl">
+        <h1 className="text-4xl font-bold text-green-800 md:text-5xl">
           Update Plant
         </h1>
         <p className="max-w-2xl mx-auto text-sm text-gray-600 sm:text-base">
@@ -173,4 +175,3 @@ const UpdatePlant = () => {
 };
 
 export default UpdatePlant;
-
