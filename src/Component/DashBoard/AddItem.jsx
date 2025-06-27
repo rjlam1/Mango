@@ -1,6 +1,3 @@
-
-
-// AddItem.jsx
 import React, { useState, useContext } from 'react';
 import { FiUpload } from 'react-icons/fi';
 import { AuthContext } from '../../PrivateRouter/AuthPrivate'; 
@@ -49,10 +46,6 @@ const AddItem = () => {
     try {
       let imageUrl = '';
       if (imageFile) {
-        
-        // const storageRef = ref(storage, `images/${imageFile.name}`);
-        // await uploadBytes(storageRef, imageFile);
-        // imageUrl = await getDownloadURL(storageRef);
 
         
         imageUrl = 'https://via.placeholder.com/400'; 

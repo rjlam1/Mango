@@ -300,15 +300,7 @@ const MyItems = () => {
                 </p>
 
                 <div className="flex space-x-3">
-                  {/* <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => navigate(`/dashboard/edit-item/${item._id}`)} 
-                    className="flex items-center px-4 py-2 space-x-2 text-white transition-colors bg-blue-600 rounded-lg hover:bg-blue-700"
-                  >
-                    <FiEdit size={16} />
-                    <span>Edit</span>
-                  </motion.button> */}
+                
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -316,7 +308,7 @@ const MyItems = () => {
                     className="flex items-center px-4 py-2 space-x-2 text-white transition-colors bg-red-600 rounded-lg hover:bg-red-700"
                   >
                     <FiTrash2 size={16} />
-                    {/* <span>Delete</span> */}
+                    
                   </motion.button>
                 </div>
               </div>
@@ -325,7 +317,7 @@ const MyItems = () => {
         </motion.div>
       )}
 
-      {/* Stats Summary */}
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

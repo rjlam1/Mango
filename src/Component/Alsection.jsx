@@ -14,7 +14,7 @@ const AISection = () => {
     >
       <div className="px-4 mx-auto max-w-8xl sm:px-6 lg:px-0">
         <div className="flex flex-col items-stretch gap-8 lg:gap-12 xl:gap-16 lg:flex-row">
-          {/* Left Content */}
+         
           <div className="w-full lg:w-1/2">
             <div
               className={`${
@@ -108,7 +108,7 @@ const AISection = () => {
             </div>
           </div>
 
-          {/* Right Content - CORRECTED LINE HERE */}
+        
           <div className="relative w-full mt-6 lg:mt-0 lg:w-1/2">
             <div
               className={`${

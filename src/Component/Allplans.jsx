@@ -20,7 +20,7 @@ const AllPlants = () => {
     searchQuery: "",
   });
 
-  // Fetch plants data
+
   useEffect(() => {
     const fetchPlants = async () => {
       try {
@@ -42,11 +42,11 @@ const AllPlants = () => {
     fetchPlants();
   }, []);
 
-  // Apply filters and sorting
+ 
   useEffect(() => {
     let result = [...plants];
 
-    // Apply filters
+ 
     if (filters.category) {
       result = result.filter((plant) => plant.category === filters.category);
     }
@@ -61,7 +61,7 @@ const AllPlants = () => {
       );
     }
 
-    // Apply sorting
+  
     result.sort((a, b) => {
       if (sortConfig.key === "name") {
         return sortConfig.direction === "asc"
@@ -108,7 +108,6 @@ const AllPlants = () => {
     });
   };
 
-  // Get unique categories and care levels for filter options
   const categories = [...new Set(plants.map((plant) => plant.category))];
   const careLevels = [...new Set(plants.map((plant) => plant.careLevel))];
 
@@ -140,13 +139,13 @@ const AllPlants = () => {
           All Plants
         </h2>
 
-        {/* Filter and Sort Controls */}
+     
         <div
           className={`flex flex-wrap justify-between gap-4 mb-8 p-4 rounded-lg ${
             isDark ? "bg-gray-800" : "bg-green-50"
           }`}
         >
-          {/* Search */}
+        
           <div className="w-full md:w-auto">
             <label htmlFor="search" className="block mb-1 font-medium">
               Search Plants
@@ -166,7 +165,7 @@ const AllPlants = () => {
             />
           </div>
 
-          {/* Category Filter */}
+         
           <div className="w-full sm:w-auto">
             <label htmlFor="category" className="block mb-1 font-medium">
               Category
@@ -191,7 +190,7 @@ const AllPlants = () => {
             </select>
           </div>
 
-          {/* Care Level Filter */}
+        
           <div className="w-full sm:w-auto">
             <label htmlFor="careLevel" className="block mb-1 font-medium">
               Care Level
@@ -216,7 +215,7 @@ const AllPlants = () => {
             </select>
           </div>
 
-          {/* Reset Button */}
+          
           <div className="flex items-end w-full sm:w-auto">
             <button
               onClick={resetFilters}
@@ -231,7 +230,7 @@ const AllPlants = () => {
           </div>
         </div>
 
-        {/* Sort Controls */}
+       
         <div className="flex flex-wrap justify-center gap-3 mb-6">
           <span className="self-center font-medium">Sort by:</span>
           {["name", "careLevel", "nextWateringDate"].map((key) => (
@@ -260,7 +259,7 @@ const AllPlants = () => {
           ))}
         </div>
 
-        {/* Plants Grid */}
+     
         {filteredPlants.length === 0 ? (
           <div className="py-12 text-center">
             <p className="text-xl text-gray-500">
@@ -286,7 +285,7 @@ const AllPlants = () => {
                   isDark ? "bg-gray-800" : "bg-white"
                 }`}
               >
-                {/* Plant Image */}
+              
                 <div className="flex items-center justify-center h-48 bg-green-100">
                   {plant.image ? (
                     <img
@@ -308,7 +307,7 @@ const AllPlants = () => {
                   )}
                 </div>
 
-                {/* Plant Details */}
+      
                 <div className="p-4">
                   <h3 className="mb-2 text-xl font-semibold truncate">
                     {plant.plantName}
@@ -342,7 +341,7 @@ const AllPlants = () => {
                     </p>
                   </div>
 
-                  {/* View Details Button */}
+               
                   <div className="mt-4">
                     <Link to={`/plant/${plant._id}`}>
                       <button

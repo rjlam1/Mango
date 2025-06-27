@@ -26,7 +26,6 @@ const DashboardLayout = () => {
     { path: "/dashboard/add-item", icon: <FiPlusSquare />, label: "Add Item", name: "add-item" },
   ];
 
-  // Consolidated theme configuration
   const themeConfig = {
     dark: {
       bg: "bg-gray-900",
@@ -119,7 +118,7 @@ const DashboardLayout = () => {
               </div>
             </div>
 
-            {/* Navigation */}
+            
             <nav className="flex flex-col flex-1 space-y-1 lg:space-y-2">
               {navItems.map(({ path, icon, label, name }) => (
                 <Link
@@ -137,7 +136,7 @@ const DashboardLayout = () => {
               ))}
             </nav>
 
-            {/* Desktop Theme Toggle */}
+         
             <div className="hidden lg:block">
               <button
                 onClick={toggleTheme}
@@ -147,7 +146,7 @@ const DashboardLayout = () => {
                 {theme === "dark" ? "Light" : "Dark"} Mode
               </button>
 
-              {/* Desktop Logout */}
+           
               {user && (
                 <button
                   onClick={logOut}
@@ -160,9 +159,9 @@ const DashboardLayout = () => {
           </div>
         </aside>
 
-        {/* Main Content */}
+     
         <main className={`flex-1 min-h-screen p-4 lg:p-6 transition-colors duration-300 ${currentTheme.content} `}>
-          {/* Mobile menu overlay */}
+       
           {mobileMenuOpen && (
             <div 
               className="fixed inset-0 z-30 bg-black bg-opacity-50 lg:hidden"

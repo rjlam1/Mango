@@ -138,7 +138,7 @@ const AllItems = () => {
         <h1 className="text-2xl font-bold text-green-800">All Items</h1>
         <div className="relative">
           {" "}
-          {/* This div contains the search icon and input */}
+         
           <FiSearch className="absolute text-gray-400 transform -translate-y-1/2 dark:text-gray-300 left-3 top-1/2" />
           <input
             type="text"
