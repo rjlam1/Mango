@@ -221,7 +221,7 @@ const AddItem = () => {
         <button
           type="submit"
           disabled={uploading}
-          className="px-6 py-2 mt-6 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-6 py-2 mt-6 text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {uploading ? 'Adding Item...' : 'Add Item'}
         </button>
